@@ -1,0 +1,27 @@
+{
+  "name": "@argos-ci/ember",
+  "version": "0.0.0",
+  "description": "Argos visual testing SDK for Ember applications.",
+  "bin": {
+    "argos-chrome": "./run-chrome.mjs"
+  },
+  "types": "types/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/argos-ci/argos-ember.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@argos-ci/puppeteer": "^1.6.4",
+    "ember-cli-babel": "^7.26.4"
+  },
+  "devDependencies": {
+    "standard-version": "^9.5.0",
+    "conventional-github-releaser": "^3.1.5"
+  },
+  "scripts": {
+    "release": "standard-version && conventional-github-releaser --preset angular"
+  }
+}

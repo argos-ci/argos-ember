@@ -1,6 +1,6 @@
 {
   "name": "@argos-ci/ember",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Argos visual testing SDK for Ember applications.",
   "bin": {
     "argos-chrome": "./run-chrome.mjs"

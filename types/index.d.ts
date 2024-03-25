@@ -18,7 +18,7 @@ export type ArgosScreenshotOptions = Omit<
 /**
  * Take a screenshot of the current page.
  */
-export default function argosScreenshot(
+export function argosScreenshot(
   name: string,
   options?: ArgosScreenshotOptions,
 ): Promise<void>;

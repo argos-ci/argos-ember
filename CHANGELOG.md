@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5](https://github.com/argos-ci/argos-ember/compare/v0.0.4...v0.0.5) (2024-03-25)
+
+
+### Bug Fixes
+
+* fix tests hanging ([f2672db](https://github.com/argos-ci/argos-ember/commit/f2672dbf307cdebac4b2e9e8755ee8c1ac92560a))
+
 ### [0.0.4](https://github.com/argos-ci/argos-ember/compare/v0.0.3...v0.0.4) (2024-03-25)
 
 

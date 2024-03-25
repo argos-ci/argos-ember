@@ -13,7 +13,7 @@ To get most out of this guide, you'll need to:
 ### 1. Install
 
 ```sh
-npm install @argos-ci/ember
+npm install --save-dev puppeteer @argos-ci/ember
 ```
 
 ### 2. Configure testem

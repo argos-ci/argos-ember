@@ -18,11 +18,16 @@
   },
   "dependencies": {
     "@argos-ci/puppeteer": "^1.6.4",
-    "ember-cli-babel": "^7.26.4"
+    "cors": "^2.8.5",
+    "ember-cli-babel": "^7.26.4",
+    "express": "^4.19.1"
+  },
+  "peerDependencies": {
+    "puppeteer": ">=20"
   },
   "devDependencies": {
-    "standard-version": "^9.5.0",
-    "conventional-github-releaser": "^3.1.5"
+    "conventional-github-releaser": "^3.1.5",
+    "standard-version": "^9.5.0"
   },
   "scripts": {
     "release": "standard-version && conventional-github-releaser --preset angular"

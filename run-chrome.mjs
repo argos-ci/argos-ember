@@ -31,6 +31,7 @@ import { argosScreenshot } from "@argos-ci/puppeteer";
         element,
         ...options,
       });
+      res.sendStatus(200);
     } catch (error) {
       res.send(error.stack);
       console.error(error);
@@ -38,13 +39,21 @@ import { argosScreenshot } from "@argos-ci/puppeteer";
     }
   });
 
-  app.listen(4320, () => {
+  const server = app.listen(4320, () => {
     console.log("Listening on 127.0.0.1:4320");
   });
 
+  process.on("SIGTERM", () => {
+    server.close();
+  });
+
   const browser = await puppeteer.launch({
-    headless: false,
+    headless: args.includes("--headless"),
     args,
+  });
+
+  process.on("SIGTERM", () => {
+    browser.close();
   });
 
   const pages = await browser.pages();

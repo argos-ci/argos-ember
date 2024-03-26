@@ -8,7 +8,10 @@ import { argosScreenshot } from "@argos-ci/puppeteer";
 (async () => {
   const argv = Array.from(process.argv);
   const url = argv.pop();
-  const execIndex = argv.findIndex((value) => value.endsWith("argos-chrome"));
+  const execIndex = argv.findIndex(
+    (value) =>
+      value.endsWith("argos-chrome") || value.endsWith("run-chrome.mjs"),
+  );
   const args = argv.slice(execIndex + 1);
 
   const app = express();

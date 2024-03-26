@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.7](https://github.com/argos-ci/argos-ember/compare/v0.0.6...v0.0.7) (2024-03-26)
+
+
+### Features
+
+* allow to customize port ([77c182d](https://github.com/argos-ci/argos-ember/commit/77c182d963888736ccb29f99873963c932fe69f8))
+
 ### [0.0.6](https://github.com/argos-ci/argos-ember/compare/v0.0.5...v0.0.6) (2024-03-26)
 
 

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.8](https://github.com/argos-ci/argos-ember/compare/v0.0.7...v0.0.8) (2024-03-26)
+
+
+### Features
+
+* support viewport ([824d85f](https://github.com/argos-ci/argos-ember/commit/824d85f90fdeed4b3aed57b50da6d586beec76e7))
+
 ### [0.0.7](https://github.com/argos-ci/argos-ember/compare/v0.0.6...v0.0.7) (2024-03-26)
 
 

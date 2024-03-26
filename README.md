@@ -64,15 +64,3 @@ Add this command to your CI pipeline to upload the screenshots to Argos.
 ```js
 npm exec -- argos upload --token <ARGOS_TOKEN> ./screenshots
 ```
-
-## Advanced
-
-### Customize API port
-
-In parallel mode you may want to have a different API port. By setting `PUPPETEER_API_PORT` environment variable you can run it on different port.
-
-```
-PUPPETEER_API_PORT=4011 ember exam --split=3 --partition=1 --load-balance "--path" "dist"
-PUPPETEER_API_PORT=4012 ember exam --split=3 --partition=2 --load-balance "--path" "dist"
-PUPPETEER_API_PORT=4013 ember exam --split=3 --partition=3 --load-balance "--path" "dist"
-```

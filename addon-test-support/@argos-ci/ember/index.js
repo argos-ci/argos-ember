@@ -1,11 +1,22 @@
 /**
+ * Get the port number from the URL.
+ */
+function getPort(url) {
+  const INITIAL_PORT = 4320;
+  const urlObj = new URL(url);
+  const browserId = urlObj.searchParams.get("browser");
+  if (browserId) {
+    return INITIAL_PORT + parseInt(browserId, 10);
+  }
+  return INITIAL_PORT;
+}
+
+/**
  * @param {string} name
  * @param {import('@argos-ci/puppeteer').ArgosScreenshotOptions} options
  */
 export async function argosScreenshot(name, options) {
-  const port = process.env.PUPPETEER_API_PORT
-    ? Number(process.env.PUPPETEER_API_PORT)
-    : 4320;
+  const port = getPort(window.location.href);
   const res = await fetch(`http://127.0.0.1:${port}/screenshot`, {
     method: "POST",
     headers: {

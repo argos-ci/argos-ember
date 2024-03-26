@@ -5,10 +5,20 @@ import express from "express";
 import cors from "cors";
 import { argosScreenshot } from "@argos-ci/puppeteer";
 
+/**
+ * Get the port number from the URL.
+ */
+function getPort(url) {
+  const INITIAL_PORT = 4320;
+  const urlObj = new URL(url);
+  const browserId = urlObj.searchParams.get("browser");
+  if (browserId) {
+    return INITIAL_PORT + parseInt(browserId, 10);
+  }
+  return INITIAL_PORT;
+}
+
 (async () => {
-  const port = process.env.PUPPETEER_API_PORT
-    ? Number(process.env.PUPPETEER_API_PORT)
-    : 4320;
   const argv = Array.from(process.argv);
   const url = argv.pop();
   const execIndex = argv.findIndex(
@@ -17,6 +27,7 @@ import { argosScreenshot } from "@argos-ci/puppeteer";
   );
   const args = argv.slice(execIndex + 1);
   const headless = args.includes("--headless");
+  const port = getPort(url);
   const viewport = (() => {
     const windowSizeArg = args.find((arg) => arg.startsWith("--window-size="));
     if (!windowSizeArg) {

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.9](https://github.com/argos-ci/argos-ember/compare/v0.0.8...v0.0.9) (2024-03-26)
+
+
+### Features
+
+* support ember-exam parallel mode ([c4b969a](https://github.com/argos-ci/argos-ember/commit/c4b969a241c2edeaed37aff8e8a49d489db4a5a6))
+
 ### [0.0.8](https://github.com/argos-ci/argos-ember/compare/v0.0.7...v0.0.8) (2024-03-26)
 
 

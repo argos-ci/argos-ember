@@ -16,6 +16,21 @@ import { argosScreenshot } from "@argos-ci/puppeteer";
       value.endsWith("argos-chrome") || value.endsWith("run-chrome.mjs"),
   );
   const args = argv.slice(execIndex + 1);
+  const headless = args.includes("--headless");
+  const viewport = (() => {
+    const windowSizeArg = args.find((arg) => arg.startsWith("--window-size="));
+    if (!windowSizeArg) {
+      return null;
+    }
+    // Example --window-size=1440,900
+    // Parse the size from the argument
+    const match = windowSizeArg.match(/=(\d+),(\d+)/);
+    if (!match) {
+      return null;
+    }
+    const [, width, height] = match;
+    return { width: parseInt(width, 10), height: parseInt(height, 10) };
+  })();
 
   const app = express();
 
@@ -53,10 +68,7 @@ import { argosScreenshot } from "@argos-ci/puppeteer";
     server.close();
   });
 
-  const browser = await puppeteer.launch({
-    headless: args.includes("--headless"),
-    args,
-  });
+  const browser = await puppeteer.launch({ headless, args });
 
   process.on("SIGTERM", () => {
     browser.close();
@@ -65,6 +77,10 @@ import { argosScreenshot } from "@argos-ci/puppeteer";
   const pages = await browser.pages();
 
   const [page] = pages;
+
+  if (viewport) {
+    await page.setViewport(viewport);
+  }
 
   await page.goto(url);
 })();

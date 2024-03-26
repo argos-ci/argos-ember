@@ -6,6 +6,9 @@ import cors from "cors";
 import { argosScreenshot } from "@argos-ci/puppeteer";
 
 (async () => {
+  const port = process.env.PUPPETEER_API_PORT
+    ? Number(process.env.PUPPETEER_API_PORT)
+    : 4320;
   const argv = Array.from(process.argv);
   const url = argv.pop();
   const execIndex = argv.findIndex(
@@ -42,8 +45,8 @@ import { argosScreenshot } from "@argos-ci/puppeteer";
     }
   });
 
-  const server = app.listen(4320, () => {
-    console.log("Listening on 127.0.0.1:4320");
+  const server = app.listen(port, () => {
+    console.log(`Listening on 127.0.0.1:${port}`);
   });
 
   process.on("SIGTERM", () => {

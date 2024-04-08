@@ -59,10 +59,17 @@ function getPort(url) {
         throw new Error("No #ember-testing element found");
       }
       const { name, ...options } = req.body;
+
+      // Emulate prefers-reduced-motion: reduce
+      await page.emulateMediaFeatures([
+        { name: "prefers-reduced-motion", value: "reduce" },
+      ]);
+
       await argosScreenshot(page, name, {
         element,
         ...options,
       });
+
       res.sendStatus(200);
     } catch (error) {
       res.send(error.stack);

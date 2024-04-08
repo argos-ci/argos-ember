@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.10](https://github.com/argos-ci/argos-ember/compare/v0.0.9...v0.0.10) (2024-04-08)
+
+
+### Bug Fixes
+
+* emulate "prefers-reduced-motion" before screenshot ([f33c810](https://github.com/argos-ci/argos-ember/commit/f33c8109632bd5cdaf424b54ff3d02f8562c1aa0)), closes [#1](https://github.com/argos-ci/argos-ember/issues/1)
+
 ### [0.0.9](https://github.com/argos-ci/argos-ember/compare/v0.0.8...v0.0.9) (2024-03-26)
 
 

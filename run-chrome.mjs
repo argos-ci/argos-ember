@@ -54,10 +54,16 @@ function getPort(url) {
   app.post("/screenshot", express.json(), async (req, res) => {
     try {
       // Take a screenshot of the page
-      const element = await page.$("#ember-testing");
-      if (!element) {
+      const emberTesting = await page.$("#ember-testing");
+      if (!emberTesting) {
         throw new Error("No #ember-testing element found");
       }
+
+      const emberTestingContainer = await page.$("#ember-testing-container");
+      if (!emberTesting) {
+        throw new Error("No #ember-testing-container element found");
+      }
+
       const { name, ...options } = req.body;
 
       // Emulate prefers-reduced-motion: reduce
@@ -65,9 +71,37 @@ function getPort(url) {
         { name: "prefers-reduced-motion", value: "reduce" },
       ]);
 
+      // Resize ember-testing to the viewport
+      await emberTesting.evaluate((element) => {
+        element.style.width = "auto";
+        element.style.height = "auto";
+        element.style.transform = "none";
+      });
+
+      await emberTestingContainer.evaluate((element) => {
+        element.style.width = "100vw";
+        element.style.height = "fit-content";
+        element.style.left = "0";
+        element.style.top = "0";
+      });
+
       await argosScreenshot(page, name, {
-        element,
+        element: emberTesting,
         ...options,
+      });
+
+      // Reset the styles
+      await emberTesting.evaluate((element) => {
+        element.style.width = "";
+        element.style.height = "";
+        element.style.transform = "";
+      });
+
+      await emberTestingContainer.evaluate((element) => {
+        element.style.width = "";
+        element.style.height = "";
+        element.style.left = "";
+        element.style.top = "";
       });
 
       res.sendStatus(200);

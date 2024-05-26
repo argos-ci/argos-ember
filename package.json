@@ -1,6 +1,6 @@
 {
   "name": "@argos-ci/ember",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Argos visual testing SDK for Ember applications.",
   "keywords": [
     "ember-addon"

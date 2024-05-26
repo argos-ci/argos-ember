@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.11](https://github.com/argos-ci/argos-ember/compare/v0.0.10...v0.0.11) (2024-05-26)
+
+
+### Features
+
+* resize container to full page ([ce38248](https://github.com/argos-ci/argos-ember/commit/ce38248501472019efbb55d0d7dc97b01979edc5))
+
 ### [0.0.10](https://github.com/argos-ci/argos-ember/compare/v0.0.9...v0.0.10) (2024-04-08)
 
 
